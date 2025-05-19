@@ -69,8 +69,8 @@ create table hm (
 
 -- tabela de movimentos aprendidos por nível
 create table por_nivel (
-  id_pornivel serial primary key,
-  numero_pornivel integer not null,
+  id_por_nivel serial primary key,
+  numero_por_nivel integer not null,
   id_pokemon integer not null references pokemon(id_pokemon),
   id_movimento integer not null references movimentos(id_movimento)
 );
