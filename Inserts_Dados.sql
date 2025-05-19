@@ -105,7 +105,7 @@ insert into habilidades (nome_habilidade, efeito_habilidade) values
 ('Véu de Água ', 'Este Pokémon não pode ser queimado. '),
 ('Fumaça Branca ', 'Impede que oponentes reduzam os atributos deste Pokémon. Não evita reduções autoinfligidas. Fora da batalha, reduz encontros com Pokémon selvagens em 50%.'),
 ('Guarda Maravilha  ', 'Recebe dano apenas de ataques super eficazes. Não protege contra status, danos indiretos ou certos golpes. Pode ser copiada por Trace, mas não trocada.'),
-insert into habilidades (nome_habilidade, efeito_habilidade) values
+
 ('Muddy Water', 'Causa dano e tem 30% de chance de reduzir a precisão do alvo em um estágio.'),
 
 
