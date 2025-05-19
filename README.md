@@ -480,3 +480,48 @@ insert into movimento_habilidade (id_movimento, id_habilidade) values
 - Este relacionamento é do tipo 1:N, onde:
   - Um pokémon evolui e outro.
 - **Este relacionamento foi absorvido diretamente na tabela `evolucoes` através dos atributos `id_pokemon_origem` e `id_pokemon_evoluido`.**
+
+# Query  
+## Query 1  
+Lista os movimentos aprendidos pelos Pokémons com ataque maior que 80, ordenando os movimentos em ordem alfabética.
+
+SELECT p.nome_pokemon AS nome_pokemon, 
+  m.nome_movimento AS nome_movimento
+FROM pokemon p
+JOIN pokemon_movimento pm ON p.id_pokemon = pm.id_pokemon
+JOIN movimentos m ON pm.id_movimento = m.id_movimento
+WHERE p.atk_pokemon > 80
+ORDER BY m.nome_movimento;
+
+
+## Query 2
+Conta quantos movimentos cada Pokémon aprende e mostra a lista ordenada do que tem mais para o que tem menos movimentos.
+
+select 
+  p.nome_pokemon as nome_pokemon, 
+  COUNT(pm.id_movimento) as total_movimentos
+from pokemon p
+join pokemon_movimento pm on p.id_pokemon = pm.id_pokemon
+join movimentos m on pm.id_movimento = m.id_movimento
+group BY p.nome_pokemon
+order BY total_movimentos desc;
+
+## Query 3
+ Mostra os Pokémons que aprendem mais de um movimento do tipo "Fogo" e que possuem pelo menos um movimento com poder acima de 50.
+ 
+select 
+  p.nome_pokemon as nome_pokemon, 
+  COUNT(pm.id_movimento) as total_movimentos
+from pokemon p
+join pokemon_movimento pm on p.id_pokemon = pm.id_pokemon
+join movimentos m on pm.id_movimento = m.id_movimento
+join tipos t on m.id_tipo = t.id_tipo
+where t.nome_tipo = 'Fogo'
+group BY p.nome_pokemon, p.id_pokemon
+having COUNT(pm.id_movimento) > 1
+  and p.id_pokemon in (
+    select distinct pm2.id_pokemon
+    from pokemon_movimento pm2
+    join movimentos m2 on pm2.id_movimento = m2.id_movimento
+    where m2.poder_movimento > 50
+  );
