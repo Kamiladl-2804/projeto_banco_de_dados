@@ -22,7 +22,7 @@ Gerenciar informações sobre os Pokémon, seus tipos, habilidades, eficácia em
 ### Formatação das tabelas no formato do diagrama
 ### Formatação das tabelas no modelo relacional
 Observação sobre a criação da tabela
-### Inserts (os ids foram gerados automaticamente pelo mongodb)
+### Inserts (os ids foram gerados automaticamente pelo supabase)
 Observação sobre o insert caso necessário
 
 # Entidades
