@@ -19,6 +19,8 @@ Gerenciar informações sobre os Pokémon, seus tipos, habilidades, eficácia em
 
 ## Ordenação de documentação
 
+### Seguindo as orientações do professor, selecionamos uma pequena amostra deste universo para o trabalho.
+Selecionamos os pokémon iniciais da geração com suas evoluções.
 ### Formatação das tabelas no formato do diagrama
 ### Formatação das tabelas no modelo relacional
 Observação sobre a criação da tabela
